@@ -1,8 +1,8 @@
 from fastapi import FastAPI, Depends
 import uvicorn
-from database import SessionLocal, engine
+from database.database import SessionLocal, engine
 from sqlalchemy.orm import Session
-import models
+import database.models as models
 
 app = FastAPI()
 models.Base.metadata.create_all(bind=engine)
@@ -19,8 +19,8 @@ def get_db():
 
 
 # All Views
-import cruds.notes
-import cruds.users
+import views.notes
+import views.users
 
 
 if __name__ == "__main__":
