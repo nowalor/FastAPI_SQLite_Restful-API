@@ -19,8 +19,8 @@ def get_db():
 
 
 # All Views
-import cruds.notes
-import cruds.users
+import views.notes
+import views.users
 
 
 if __name__ == "__main__":
