@@ -1,13 +1,26 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends
 import uvicorn
-
+from database import SessionLocal, engine
+from sqlalchemy.orm import Session
+import models
 
 app = FastAPI()
+models.Base.metadata.create_all(bind=engine)
 
 
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
+def get_db():
+    try:
+        db = SessionLocal()
+        yield db
+    except:
+        print("Some exception")
+    finally:
+        db.close()
+
+
+# All Views
+import cruds.notes
+import cruds.users
 
 
 if __name__ == "__main__":
