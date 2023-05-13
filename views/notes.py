@@ -1,6 +1,5 @@
 from fastapi import Depends
 from main import app, get_db
-from database import SessionLocal, engine
 from sqlalchemy.orm import Session
 import models
 import schemas
