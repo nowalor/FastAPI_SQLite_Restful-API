@@ -1,8 +1,8 @@
 from fastapi import Depends
 from main import app, get_db
-import models
+import database.models as models
 from sqlalchemy.orm import Session
-import schemas
+import database.schemas as schemas
 from helpers.hasher import Hasher
 from pydantic import BaseModel
 

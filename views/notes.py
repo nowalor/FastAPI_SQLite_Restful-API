@@ -1,8 +1,8 @@
 from fastapi import Depends
 from main import app, get_db
 from sqlalchemy.orm import Session
-import models
-import schemas
+import database.models as models
+import database.schemas as schemas
 
 
 @app.get("/notes")
